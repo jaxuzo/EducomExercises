@@ -1,0 +1,93 @@
+/* Body en container */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+}
+
+.container{
+  width: 800px;        /* pagina 800px breed */
+  margin: 0 auto;      /* centreert de container */
+}
+
+/* Header */
+.header {
+  height: 48px;                /* minimaal 48 pixels hoog */
+  line-height: 48px;           /* centreren van tekst verticaal */
+  text-align: center;           /* centreren horizontaal */
+  font-size: 48px;              /* tekstgrootte 48px */
+}
+
+/* Navigatie menu */
+ul.menu {
+  list-style: none;             /* geen bullets */
+  padding: 0;
+  margin: 10px 0;
+  display: flex;                /* items op 1 regel */
+  justify-content: center;
+  gap: 10px;                    /* ruimte tussen items */
+}
+
+ul.menu li > a{
+    list-style: none;      /* geen bullets */
+  border: 1px solid #000;       /* omkadering van items */
+}
+
+ul.menu li > a {
+  text-decoration: none;        /* geen underline */
+  color: #fff;                  /* witte tekst */
+  background-color: blue;       /* blauwe achtergrond */
+  padding: 5px 15px;
+  display: inline-block;
+}
+
+/* Pagina tekst */
+.main {
+  font-size: 20px;              /* tekst 12px hoog */
+  color: #333;                  /* donkergrijs */
+  background-color: #fff;
+  padding: 10px;
+}
+
+/* Footer */
+footer {
+  background-color: #000;       /* zwarte achtergrond */
+  color: #fff;                  /* witte letters */
+  font-size: 10px;              /* 10px hoog */
+  text-align: right;            /* rechts uitlijnen */
+  padding: 5px 10px;
+}
+
+/* Formulier */
+form {
+  margin: 20px 0;
+}
+
+.error {color: #FF0000;}
+
+form label {
+  display: inline-block;   /* label naast het veld */
+  font-weight: bold;
+  text-align: right;       /* tekst rechts uitlijnen bij label */
+  margin-right: 10px;      /* ruimte tussen label en veld */
+    width: 100px;            /* breedte van het label */
+    vertical-align: top;
+}
+
+form input,
+form textarea {
+  display: inline-block;
+  width: 400px;            /* overgebleven breedte */
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+form button {
+  padding: 10px 20px;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
