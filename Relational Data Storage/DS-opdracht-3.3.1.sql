@@ -1,0 +1,3 @@
+SELECT NAME
+FROM mhl_cities
+ORDER BY NAME
