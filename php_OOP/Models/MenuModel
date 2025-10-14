@@ -1,0 +1,12 @@
+<?php
+class MenuModel {
+    public function getMainMenu(): array {
+        return [
+            ['home' => 'Home',
+            'about' => 'About',
+            'contact' => 'Contact']
+        ];
+    }
+}
+
+?>
