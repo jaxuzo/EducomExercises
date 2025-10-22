@@ -1,20 +1,42 @@
 <?php
 
-class Menu { 
-    private array $items;
+require_once ROOT.'/Models/MenuModel.php';
+require_once ROOT.'/Views/View.php';
 
-    public function __construct($items = []) {
-        //$items = ['home' => 'Home', 'about' => 'About', 'contact' => 'Contact'];
-        $this->items = $items;        
+class Menu extends View{ 
+
+    private MenuModel $menu_model;
+
+    public function __construct() {
+        $this->menu_model =  new MenuModel();       
     }
 
-    public function render(): string {
-        $html = "<ul class='menu'>";
-        foreach ($this->items as $name => $label) {
-            $html .= "<li><a href='index.php?page=$name'>$label</a></li><br>";
-        }
-        $html .= "</ul>";
-        return $html;
+    protected function openMenuHtml(): string {
+        return '<ul class="menu">';
+    }
+
+    protected function createMenuItemsHtml(): string {
+        $result = '';
+
+        foreach ($this->menu_model->getMenuItems() as $name => $info) {
+            $result .= "<li><a href='?page={$name}'>{$info['label']}</a></li>".PHP_EOL;
+        } 
+        return $result;
+    }
+
+    protected function closeMenuHtml(): string {
+        return '</ul>'.PHP_EOL;
+    }
+
+    public function createHtml() : string
+    {
+	    return $this->openMenuHtml()
+	    .$this->createMenuItemsHtml()
+	    .$this->closeMenuHtml();
+    }    
+
+    public function render():void{
+        echo $this->createHtml();
     }
 }
 ?>

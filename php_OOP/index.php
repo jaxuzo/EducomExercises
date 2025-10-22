@@ -6,9 +6,15 @@
 <body>
 
 <?php
-require 'Views/Menu.php';
 
-$Test2 = new Menu(['home' => 'Huis']);
-$TestMenu = new Menu();
-echo $Test2->render();
+define("ROOT","C:/xampp/htdocs/EducomExercises/php_OOP/");
+
+require_once ROOT.'Controllers/Controller.php'; 
+
+session_start();
+$_SERVER['REQUEST_METHOD'] = 'POST';
+$_POST['page'] = 'contact';
+$controller = new Controller();
+$controller->handleRequest();
+
 ?>

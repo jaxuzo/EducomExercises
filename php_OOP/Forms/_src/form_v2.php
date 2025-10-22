@@ -1,0 +1,53 @@
+<?php
+function showForm(string $action, string $method, array $fields, string $submit_caption, array $post_result = []) : void
+{
+    openForm($action, $method);
+    showFields($fields, $post_result);
+    closeForm($submit_caption);
+}
+
+function openForm(string $action, string $method) : void
+{
+    echo '<form action="'.$action.'" method="'.$method.'" >'.PHP_EOL;
+}
+
+function showFields(array $fields, array $post_result) : void
+{
+    foreach ($fields as $name => $type)
+    {
+        $value = array_key_exists($name, $post_result) ? $post_result[$name] : '';
+        $error = array_key_exists($name.'_err', $post_result) ? $post_result[$name.'_err'] : '';
+        showField(
+            field_name  : $name, 
+            field_type  : $type, 
+            field_value : $value, 
+            field_error : $error
+        );
+    }
+}
+
+function showField(string $field_name, string $field_type, string $field_value, string $field_error) : void
+{
+    echo '      <label for="'.$field_name.'">'.$field_name.'</label>'.PHP_EOL;
+    switch ($field_type)
+    {
+        case "textarea" :
+            echo '      <textarea name="'.$field_name.'">'.$field_value.'</textarea>'.PHP_EOL;
+            break;
+        default :	
+            echo '      <input type="'.$field_type.'" name="'.$field_name.'" value="'.$field_value.'"/>'.PHP_EOL;
+            break;
+    }
+    if ($field_error)
+    {
+        echo '      <span class="input_error">'.$field_error.'</span>'.PHP_EOL;
+    }
+    echo '<br />'.PHP_EOL;
+}
+
+function closeForm(string $submit_caption) : void
+{
+    echo '  <button type="submit" value="submit">'.$submit_caption.'</button>'.PHP_EOL
+        .'</form>'.PHP_EOL;
+}
+

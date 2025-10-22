@@ -1,0 +1,32 @@
+<h2>No validation</h2>
+<form action="xss.php" method="POST" >
+	<label for="name">name</label>
+	<input type="text" name="name" value=""/>
+	<br />
+	<label for="email">email</label>
+	<input type="email" name="email" value=""/>
+	<br />
+	<label for="message">message</label>
+	<textarea name="message"></textarea>
+	<br />
+	<button type="submit" value="submit">Send</button>
+</form>
+
+
+
+
+<h2>Some validation</h2>
+<form action="xss.php" method="POST" >
+	<label for="name">name</label>
+	<input type="text" name="name" pattern="(?=.*[a-z])(?=.*[A-Z]).{3,}" title="'Sorry, but Bob is the minimum" value=""/>
+	<br />
+	<label for="email">email</label>
+	<input type="email" name="email" value=""/>
+	<br />
+	<label for="message">message</label>
+	<textarea name="message" minlength="20"></textarea>
+	<br />
+	<button type="submit" value="submit">Send</button>
+</form>
+
+#
