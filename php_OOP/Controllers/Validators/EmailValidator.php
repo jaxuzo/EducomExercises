@@ -18,5 +18,6 @@ class EmailValidator extends BaseValidator{
 
     }
 
+
 }
 

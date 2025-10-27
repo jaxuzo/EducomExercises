@@ -20,10 +20,12 @@ class BedanktContactBody extends BaseBody{
         $result = 'Bedankt voor het opnemen van contact, we nemen zo spoedig mogelijk contact met u op. <br>
         Hierbij uw data zoals opgegeven:<br><br>';
 
+        $this -> values = $_POST;
         foreach($this -> values as $name => $value){
-            $result.= ucfirst($name).': '.$value;
+            if ($name !== 'page'){
+            $result.= ucfirst($name).': '.$value.'<br>';
+            }
         }
-        echo $result;
         return $result;
     }
 

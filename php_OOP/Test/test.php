@@ -8,7 +8,7 @@ require_once ROOT.'Controllers/Controller.php';
 
 
 $_SERVER['REQUEST_METHOD'] = 'POST';
-$_POST['page'] = 'contact';
+$_POST['page'] = 'login';
 // Goede request
 $_POST = ['name'=>'Jasper Mol', 'email'=>'jaspermol95@gmail.com', 'comment' => 'test']; 
 

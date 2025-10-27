@@ -17,10 +17,19 @@ class FormModel{
                     'email' => ['type' => 'email', 'label' => 'Email'],
                     'comment' => [ 'type' => 'textarea', 'label' => 'Comment']
                     ];
-            // case 'login':
-            //     return [1,1];
-            // case 'register':
-            //     return [2,1];
+            case 'login':
+                return
+                    [  
+                    'email' => ['type' => 'email', 'label' => 'Email'],
+                    'password' => ['type' => 'password', 'label' => 'Wachtwoord'] 
+                    ];
+            case 'register':
+                return
+                    [  
+                    'email' => ['type' => 'email', 'label' => 'Email'],
+                    'password' => ['type' => 'password', 'label' => 'Wachtwoord'],
+                    'password2' => ['type' => 'password', 'label' => 'Herhaal Wachtwoord']
+                    ];
             default:
                 return [];
         }
@@ -34,6 +43,12 @@ class FormModel{
                 return 'Contactformulier';
             case 'shop':
                 return 'Shop';
+            case 'login':
+                return 'Login';
+            case 'register':
+                return 'Registreer';
+            default:
+                return 'Titel onbekend';
         }
     }
     

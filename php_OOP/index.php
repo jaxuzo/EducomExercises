@@ -1,20 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" href="config.css">
-</head>
-<body>
-
 <?php
 
 define("ROOT","C:/xampp/htdocs/EducomExercises/php_OOP/");
 
-require_once ROOT.'Controllers/Controller.php'; 
+require_once ROOT.'Controllers/Controller.php';
+require_once ROOT.'config.php';
+require_once ROOT.'Models/Database.php';
+require_once ROOT.'Controllers/UserSession.php';
 
-session_start();
-$_SERVER['REQUEST_METHOD'] = 'POST';
-$_POST['page'] = 'contact';
-$controller = new Controller();
+$session = new UserSession();
+
+$db= new Database();
+
+$controller = new Controller($db, $session);
 $controller->handleRequest();
 
 ?>

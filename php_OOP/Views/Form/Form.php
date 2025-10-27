@@ -12,7 +12,7 @@ class Form extends View
     protected FieldList $field_list;
 
     public function __construct(string $page, string $form_name, array $field_data, string $submit_caption, array $values = [], array $errors = [])
-    {
+    {   
         $this->page = $page;
         $this->action = htmlspecialchars($_SERVER["PHP_SELF"]);
         $this->errors = $errors;

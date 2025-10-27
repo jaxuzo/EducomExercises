@@ -24,6 +24,7 @@ class FormValidator
         $validator_factory = new ValidatorFactory();
 
         foreach ($this->field_info as $name => $info) {
+            
             $validator = $validator_factory->createValidator($name, $info['type']);
 
             if (!$validator->validate()) {

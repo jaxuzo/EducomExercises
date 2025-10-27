@@ -6,7 +6,7 @@ Class MenuModel {
 
     public function __construct(){
         //Checkt puur of de user ingelogd is
-        $this->loggedIn = isset($_SESSION['user']);
+        $this->loggedIn = isset($_SESSION['user_id']);
     }
 
     public function getMenuItems() : array{
@@ -15,8 +15,9 @@ Class MenuModel {
                 'home' => ['label' => 'Home'],
                 'about' => ['label' => 'About'],
                 'contact' => ['label' => 'Contact'],
+                'shop' => ['label' => 'Shop'],
                 'login' => ['label' => 'Login'],
-                'registreren' => ['label' => 'Registreer'],
+                'register' => ['label' => 'Registreer'],
             ];
         }
         else{

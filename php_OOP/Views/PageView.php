@@ -4,6 +4,7 @@ require_once ROOT.'Views/Header.php';
 require_once ROOT.'Views/Footer.php';
 require_once ROOT.'Views/Menu.php';
 require_once ROOT.'Views/View.php';
+require_once ROOT.'Views/Layout/Layout.php';
 
 class PageView extends View {
    
@@ -14,13 +15,15 @@ class PageView extends View {
     protected Header $header;
     protected Footer $footer;
     protected Menu $menu;
+    protected Database $db;
 
     protected BodyFactory $body_factory;
 
-    public function __construct(string $page, array $errors = [], array $values = []) {
+    public function __construct(string $page, Database $db, array $errors = [], array $values = []) {
         $this->errors = $errors;
         $this->values = $values;
         $this->page = $page;
+        $this->db = $db;
         $this->header = new Header($page);
         $this->menu = new Menu();
         $this->body_factory = new BodyFactory();
@@ -30,7 +33,7 @@ class PageView extends View {
     public function render(): void {
         $this->header->render();
         $this->menu->render();
-        $this->body_factory->createBody($this->page, $this->errors, $this->values)->render();
+        $this->body_factory->createBody($this->page, $this->db, $this->errors, $this->values)->render();
         $this->footer->render();
     }
 }

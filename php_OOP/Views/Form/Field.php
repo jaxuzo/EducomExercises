@@ -27,7 +27,7 @@ class Field{
 
     protected function createErrorHtml() : string
     {
-        return '<span class="error"> *'.$this->error.'</span><br/>';
+        return '<span class="error"> * '.$this->error.'</span><br/>';
     }        
 
     public function createHtml(): string

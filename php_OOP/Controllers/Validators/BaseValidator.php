@@ -13,7 +13,6 @@ Class BaseValidator{
     }
 
     public function validate() : bool{
-
         //check of de waarde uberhaupt bestaat, dus of het post veld bestaat
         if(!isset($_POST[$this->name])){
             $this->error = 'Deze waarde bestaat niet.';
@@ -22,7 +21,7 @@ Class BaseValidator{
 
         $value = trim($_POST[$this->name]);
         if(empty($value)){
-            $this->error = 'Dit veld is nog leeg';
+            $this->error = 'Dit veld is nog leeg.';
             return false;
         }
 

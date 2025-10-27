@@ -1,14 +1,14 @@
 <?php
 
+require_once ROOT.'Views/Body/BaseBody.php';
 require_once ROOT.'Models/FormModel.php';
 require_once ROOT.'Views/Form/Form.php';
-require_once ROOT.'Views/Body/BaseBody.php';
 
-class ContactBody extends BaseBody{
+class RegisterBody extends BaseBody{
 
     protected string $page;
-    protected array $values;
     protected array $errors;
+    protected array $values;
 
     public function __construct (string $page, array $errors = [], array $values = []){
         $this->page = $page;
@@ -16,7 +16,7 @@ class ContactBody extends BaseBody{
         $this->errors = $errors;
     }
 
-    public function createHtml() : string{
+    public function createHtml(): string{
         $form_model = new FormModel($this->page);
         $form = new Form($this->page, 
                         $form_model->getFormName(), 
@@ -24,12 +24,7 @@ class ContactBody extends BaseBody{
                         $form_model->getSubmitCaption(), 
                         $this->values, 
                         $this->errors);
-
-        $html = 'Vul hieronder je Naam, Email en Bericht in.<br><br>';
-        $html.= $form->createHtml();
-        return $html;
+        return $form->createHtml();
     }
 
 }
-
-?>
